@@ -35,5 +35,17 @@ func main() {
 	converter := md.NewConverter("", true, nil)
 	markdown := converter.Convert(selec)
 
-	fmt.Println(markdown)
+	outFilename := "result.md"
+
+	f, err := os.Create(outFilename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = f.WriteString(markdown)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("File saved in %s\n", outFilename)
 }
