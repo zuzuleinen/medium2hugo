@@ -7,6 +7,6 @@ into Hugo [Markdown syntax](https://raw.githubusercontent.com/zuzuleinen/medium2
 
 ## Usage
 
-```shell
+```bash
 medium2hugo https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608
 ```
