@@ -7,6 +7,8 @@ into Hugo [Markdown syntax](https://raw.githubusercontent.com/zuzuleinen/medium2
 
 ## Usage
 
+Call `medium2hugo` with a Medium URL(ex. https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608)
+
 ```bash
-medium2hugo https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608
+medium2hugo <url>
 ```
