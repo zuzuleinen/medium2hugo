@@ -12,7 +12,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("add an url")
+		fmt.Println("Please add an URL to the Medium article!")
 		os.Exit(1)
 	}
 
