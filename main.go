@@ -1,19 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/PuerkitoBio/goquery"
+	"github.com/fatih/color"
 )
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Please add an URL to the Medium article!")
-		os.Exit(1)
+		color.Red("Please add an URL")
+		return
 	}
 
 	// https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608
@@ -47,5 +47,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("File saved in %s\n", outFilename)
+	color.Green("File saved: %s\n", outFilename)
 }
