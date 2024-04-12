@@ -3,9 +3,11 @@ package parser
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/PuerkitoBio/goquery"
@@ -60,8 +62,50 @@ func getMarkdownBody(url string) (string, error) {
 	article := doc.Find("article")
 
 	converter := md.NewConverter("", true, nil)
-
+	converter.Use(MediumImage())
 	return converter.Convert(article), nil
+}
+
+// MediumImage will parse images from Medium story and save them in an ./images folder
+func MediumImage() md.Plugin {
+	return func(c *md.Converter) []md.Rule {
+		result := ""
+		return []md.Rule{
+			{
+				Filter: []string{"picture"},
+				Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
+					selec.ChildrenFiltered("source").Each(func(i int, selection *goquery.Selection) {
+						if val, ok := selection.Attr("type"); val == "image/webp" && ok {
+							if srcSet, hasSrc := selection.Attr("srcset"); hasSrc {
+								imgURL := strings.Split(strings.Split(srcSet, ",")[0], " ")[0]
+								imgURL = strings.Replace(imgURL, "/format:webp", "", 1)
+								res, _ := http.Get(imgURL)
+
+								fmt.Println(imgURL)
+								filename := extractFilename(imgURL)
+								f, err := os.Create(fmt.Sprintf("images/%s", filename))
+
+								bs, _ := io.ReadAll(res.Body)
+								if _, err = f.Write(bs); err != nil {
+									log.Fatal(err)
+								}
+								result = fmt.Sprintf("![Image Alt](/images/%s)", extractFilename(imgURL))
+							}
+						}
+					})
+					return md.String(result)
+				},
+			},
+		}
+	}
+}
+
+// extractFilename extracts filename with extension from a Medium URL
+// such as https://miro.medium.com/v2/resize:fit:640/1*-KZONqGNNwqPJ4Bmf70o-Q.png
+func extractFilename(url string) string {
+	parts := strings.Split(url, "/")
+	filenameWithExt := parts[len(parts)-1]
+	return filenameWithExt
 }
 
 // getMarkdownBody parses JSON response and creates article Front Matter
