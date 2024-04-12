@@ -25,6 +25,22 @@ Example:
 medium2hugo https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608
 ```
 
+If the Medium story contains any images they are saved in a `./images` directory:
+
+```shell 
+
+$ medium2hugo https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608
+
+Exporting image: images/1*-KZONqGNNwqPJ4Bmf70o-Q.png
+Exporting image: images/1*M7AlXdGEfds9uD8fgkU6qw.png
+Exporting image: images/1*WPw5kYw_1aq8d1qiVW0uRg.png
+Exporting image: images/1*7HqA96t-RS1q7-c0B8k8PA.png
+Exporting image: images/1*9EqehxF0ndL0YFlFVTqGqQ.jpeg
+Exporting image: images/1*41tmv3iHYKLioseW8TgUJw.png
+
+Article saved in: fundamentals-of-i-o-in-go-part-2-e7bb68cd5608.md
+```
+
 ## Contributing
 
 If you encounter a problem feel free to [open an issue](https://github.com/zuzuleinen/medium2hugo/issues/new) or e-mail

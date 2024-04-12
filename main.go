@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -16,10 +17,12 @@ func main() {
 	}
 	mediumURL := os.Args[1]
 	outFilename := parser.ArticleFilename(mediumURL)
+	imgDir := "images"
 
-	if err := parser.ExportToHugo(mediumURL, outFilename); err != nil {
+	if err := parser.ExportToHugo(mediumURL, outFilename, imgDir); err != nil {
 		log.Fatalf("error occured while exporting: %s", err)
 	}
 
-	color.Green("Article saved in: %s\n", outFilename)
+	yellow := color.New(color.FgYellow).SprintFunc()
+	fmt.Printf("\nArticle saved in: %s\n", yellow(outFilename))
 }
