@@ -25,6 +25,8 @@ Example:
 medium2hugo https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608
 ```
 
+### Images
+
 If the Medium story contains any images they are saved in a `./images` directory:
 
 ```shell 
