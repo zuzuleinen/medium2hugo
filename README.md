@@ -1,6 +1,6 @@
 # medium2hugo
 
-Export your Medium stories into Hugo Markdown syntax.
+Export your Medium stories in Markdown syntax for [Hugo](https://gohugo.io/).
 
 <p align="center">
 <img align="middle" src="demo.png" />
