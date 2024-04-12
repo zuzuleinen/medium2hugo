@@ -29,7 +29,7 @@ medium2hugo https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb
 
 ### Images
 
-If the Medium story contains any images they are saved in a `./images` directory:
+If the Medium story contains any images, they are saved in a `./images` directory:
 
 ```shell 
 
