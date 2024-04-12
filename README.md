@@ -3,7 +3,7 @@
 Export your Medium stories into Hugo Markdown syntax.
 
 <p align="center">
-<img align="middle" src="demo_2.png" />
+<img align="middle" src="demo_3.png" />
 </p>
 
 For example, [this](https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608) article is converted
