@@ -59,6 +59,7 @@ func getMarkdownBody(url, imgDir string) (string, error) {
 		log.Fatal(err)
 	}
 
+	doc.Find(".pw-subtitle-paragraph").Parent().Remove()
 	doc.Find(".pw-post-title").Parent().Remove()
 	article := doc.Find("article")
 
