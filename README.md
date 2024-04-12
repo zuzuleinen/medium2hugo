@@ -15,6 +15,8 @@ go install
 
 ## Usage
 
+### Export single article
+
 ```bash
 medium2hugo <url>
 ```
