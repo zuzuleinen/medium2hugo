@@ -84,13 +84,22 @@ func MediumImage(imgDir string) md.Plugin {
 							if srcSet, hasSrc := selection.Attr("srcset"); hasSrc {
 								imgURL := strings.Split(strings.Split(srcSet, ",")[0], " ")[0]
 								imgURL = strings.Replace(imgURL, "/format:webp", "", 1)
-								res, _ := http.Get(imgURL)
+								res, err := http.Get(imgURL)
+								if err != nil {
+									log.Fatal(err)
+								}
 
 								filename := extractFilename(imgURL)
 
 								f, err := os.Create(fmt.Sprintf("%s/%s", imgDir, filename))
+								if err != nil {
+									log.Fatal(err)
+								}
 
-								bs, _ := io.ReadAll(res.Body)
+								bs, err := io.ReadAll(res.Body)
+								if err != nil {
+									log.Fatal(err)
+								}
 								if _, err = f.Write(bs); err != nil {
 									log.Fatal(err)
 								}
