@@ -15,7 +15,7 @@ func main() {
 		return
 	}
 	mediumURL := os.Args[1]
-	outFilename := "article.md"
+	outFilename := parser.ArticleFilename(mediumURL)
 
 	if err := parser.ExportToHugo(mediumURL, outFilename); err != nil {
 		log.Fatalf("error occured while exporting: %s", err)

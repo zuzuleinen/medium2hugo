@@ -25,3 +25,10 @@ func TestExtractFilename(t *testing.T) {
 		assert.Equal(t, v.expected, extractFilename(v.url))
 	}
 }
+
+func TestArticleFilename(t *testing.T) {
+	mediumURL := "https://medium.com/@andreiboar/fundamentals-of-i-o-in-go-part-2-e7bb68cd5608"
+	expected := "fundamentals-of-i-o-in-go-part-2-e7bb68cd5608.md"
+
+	assert.Equal(t, expected, ArticleFilename(mediumURL))
+}

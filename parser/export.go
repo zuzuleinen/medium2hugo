@@ -130,3 +130,9 @@ func getFrontMatter(originalURl string) (FrontMatter, error) {
 		Tags:  c.Tags,
 	}, nil
 }
+
+// ArticleFilename returns the filename of generated Markdown article based on the mediumURL
+func ArticleFilename(mediumURL string) string {
+	parts := strings.Split(mediumURL, "/")
+	return parts[len(parts)-1] + ".md"
+}
