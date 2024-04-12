@@ -48,6 +48,6 @@ Article saved in: fundamentals-of-i-o-in-go-part-2-e7bb68cd5608.md
 ## Contributing
 
 If you encounter a problem feel free to [open an issue](https://github.com/zuzuleinen/medium2hugo/issues/new) or e-mail
-me at andrey.boar[at]gmail.com
+me at `andrey.boar[at]gmail.com`.
 
-If you want to keep in touch [connect with me on LinkedIn](https://www.linkedin.com/in/andrei-boar/)
+If you want to keep in touch [connect with me on LinkedIn](https://www.linkedin.com/in/andrei-boar/).
