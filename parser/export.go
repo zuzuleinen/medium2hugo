@@ -81,7 +81,6 @@ func MediumImage() md.Plugin {
 								imgURL = strings.Replace(imgURL, "/format:webp", "", 1)
 								res, _ := http.Get(imgURL)
 
-								fmt.Println(imgURL)
 								filename := extractFilename(imgURL)
 								f, err := os.Create(fmt.Sprintf("images/%s", filename))
 
